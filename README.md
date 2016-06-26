@@ -30,12 +30,13 @@ You will need the following things properly installed on your computer.
 Add URL of REST API Instance to config
 
 config/environment.js
-
+<code>
 var ENV = {\
 	...
     RestApiUrl: 'http://localhost:3000',
     ...
 };
+</code>
 
 =====================================================================
 =====================================================================

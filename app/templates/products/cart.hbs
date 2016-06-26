@@ -1,0 +1,30 @@
+<h1>Cart</h1>
+{{#if model.length}}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Cost</th>
+                <th>Quantity</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td>{{#link-to "products.index" activeClass="selected"}}Back to choose the products{{/link-to}}</td>
+                <td></td>
+                <td><strong>Payment</strong></td>
+                <td><strong>${{cart-summary model=model}}</strong></td>
+            </tr>
+        </tfoot>
+        <tbody>
+        {{#each model as |product|}}
+            {{product-cart-item product=product updateProduct="updateProduct" deleteProduct="deleteProduct"}}
+        {{/each}}
+        </tbody>
+    </table>
+    {{products-order createOrder="createOrder"}}
+{{else}}
+    Your cart is empty. Please add some
+    {{#link-to "products.index" activeClass="selected"}}products{{/link-to}}
+{{/if}}

@@ -1,0 +1,21 @@
+<td>{{product.name}}</td>
+<td>${{product.price}}</td>
+<td>
+    {{#if product.quantity}}
+        <strong>{{remaining}}</strong> of {{product.quantity}}
+    {{else}}
+        Not available
+    {{/if}}
+</td>
+<td>
+    <div class="product-item-actions">
+        {{#if cartItem}}
+            <button {{action "decrease"}}>-</button>
+            {{input type="number" value=cartItem.quantity key-up="updateQuantity" change="updateQuantity" class="quantity-input"}}
+            <button {{action "increase"}}>+</button>
+            <button {{action "remove" cartItem}}>Remove</button>
+        {{else}}
+            <button {{action "increase"}} disabled={{disabled}}>Add to Cart</button>
+        {{/if}}
+    </div>
+</td>

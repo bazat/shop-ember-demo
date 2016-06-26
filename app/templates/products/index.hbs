@@ -1,0 +1,24 @@
+<h1>Products</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Cost</th>
+            <th>Remaining</th>
+            <th>{{cart-preview}}</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><strong>{{#link-to "products.cart" activeClass="selected"}}Go to Cart{{/link-to}}</strong></td>
+        </tr>
+    </tfoot>
+    <tbody>
+        {{#each model as |product|}}
+            {{product-item product=product updateCart="updateCart" updateProduct="updateProduct" deleteProduct="deleteProduct"}}
+        {{/each}}
+    </tbody>
+</table>
